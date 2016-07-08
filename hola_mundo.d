@@ -2,7 +2,7 @@ import rx;
 import std.algorithm : equal;
 import std.array : appender;
 import std.conv : to;
-
+import std.stdio;
 void main()
 {
     auto subject = new SubjectObject!int;
@@ -16,8 +16,12 @@ void main()
     foreach (i; 0 .. 10)
     {
         subject.put(i); //se modifica el sujeto
+        write("nuevo valor del sujeto: ");
+        writeln(i);
     }
 
     auto result = buf.data;
-    assert(equal(result, ["0", "2", "4", "6", "8"])); //se verifica que la salida sea la esperada
+    write("\nresultado:");
+    writeln(result);
+    //assert(equal(result, ["0", "2", "4", "6", "8"])); //se verifica que la salida sea la esperada
 }
